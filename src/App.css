@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* Globale Stile */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #001F3F; /* Dunkles Blau für den gesamten Hintergrund */
+  color: #F0EAD6; /* Cremefarbene Schrift für die Standardtextfarbe */
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Hauptcontainer */
+.main-container {
+  padding: 80px 60px; /* Großzügiges Padding */
+  max-width: 1200px; /* Maximale Breite für größere Bildschirme */
+  margin: 0 auto; /* Zentrieren des Containers */
+
+  position: relative;
+}
+
+/* Typewriter Effekt */
+.heading {
+  font-size: 7rem; /* Sehr große Schrift für den Titel */
+  margin-bottom: 60px; /* Größerer Abstand nach unten */
+  color: #F0EAD6; /* Cremefarbene Schrift für die Überschrift */
+  font-weight: 700; /* Fettere Schrift für größere Wirkung */
+  text-align: center; /* Zentrierte Überschrift */
+  letter-spacing: 1.5px; /* Etwas mehr Abstand zwischen Buchstaben */
+  line-height: 1.3; /* Erhöhte Zeilenhöhe für bessere Lesbarkeit */
+  white-space: nowrap; /* Verhindert Zeilenumbruch */
+  overflow: hidden; /* Verhindert Überlauf */
+}
+
+/* Typewriter Animation für wechselnden Text */
+.typewriter-text {
+  display: inline; /* Inline für den Typewriter-Effekt */
+  overflow: hidden; /* Verhindert Überlauf */
+  white-space: nowrap; /* Verhindert Zeilenumbruch */
+  border-right: .15em solid #F0EAD6; /* Blinkender Cursor-Effekt */
+  animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Cursor Blink Animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #F0EAD6; }
+}
+
+/* Bibelvers Container */
+.bibelvers-container {
+  background-color: #f0ead6; /* Weicher Salbei-Ton */
+  color: black;
+  padding: 40px 30px; /* Mehr Padding für besseren Abstand */
+  margin: 60px 0; /* Mehr Abstand oben und unten */
+  border-radius: 10px; /* Abgerundete Ecken */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sanfter Schatten */
+  transition: background-color 0.3s ease; /* Sanfte Hintergrundfarbe-Übergänge */
+}
+
+.bibelvers-container:hover {
+  background-color: #e0d7c0; /* Etwas dunklerer Salbei-Ton beim Hover */
+}
+
+/* Bibelverse */
+.bibelvers {
+  font-size: 1.8rem; /* Größere Schrift für Bibelverse */
+  font-weight: 700; /* Fett */
+  color: #001F3F; /* Dunkles Blau für gute Lesbarkeit */
+  text-align: center; /* Zentrierte Bibelverse */
+  margin: 0; /* Kein zusätzlicher Abstand */
+  line-height: 1.6; /* Erhöhte Zeilenhöhe */
+}
+
+/* Texte */
+.fade-text {
+  font-size: 1.4rem; /* Etwas größere Schriftgröße */
+  line-height: 1.8; /* Gute Lesbarkeit */
+  color: #F0EAD6; /* Cremefarbene Schrift für Textfarbe */
+  opacity: 0.7; /* Anfangs leicht sichtbar */
+  transform: translateY(20px); /* Leicht nach unten verschoben */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Sanfte Übergänge */
+  margin-bottom: 70px; /* Größerer Abstand nach unten */
+  text-align: center; /* Zentrierter Text */
+}
+
+/* Sichtbare Texte, wenn gescrollt */
+.fade-text.visible {
+  opacity: 1; /* Vollständig sichtbar */
+  transform: translateY(0); /* Zurück zur normalen Position */
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 4rem; /* Kleinere Schrift für mobile Geräte */
+    margin-bottom: 40px; /* Angepasster Abstand nach unten für mobile Geräte */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .fade-text {
+    font-size: 1.2rem; /* Kleinere Schriftgröße für mobile Geräte */
+    margin-bottom: 40px; /* Angepasster Abstand nach unten für mobile Geräte */
   }
-  to {
-    transform: rotate(360deg);
+  .main-container {
+    padding: 40px 20px; /* Weniger Padding für mobile Geräte */
+  }
+  .bibelvers-container {
+    padding: 20px; /* Weniger Padding für mobile Geräte */
+    margin: 30px 0; /* Angepasster Abstand oben und unten für mobile Geräte */
   }
 }
