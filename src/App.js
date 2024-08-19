@@ -1,9 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Typewriter from './Typewriter';
+import { Cross as Hamburger } from 'hamburger-react'; // Importiere den Cross-Stil
+
 
 function App() {
   const textRefs = useRef([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -36,22 +39,41 @@ function App() {
     };
   }, []);
 
-  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="App">
+      <div className="menu-icon">
+        <Hamburger toggled={isMenuOpen} toggle={toggleMenu} color="#fff" />
+      </div>
+
+      {/* Menu Overlay */}
+      <div className={`menu-overlay ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(false)}>
+        <div className="menu-content" onClick={(e) => e.stopPropagation()}>
+          <ul>
+            <li><a href="#section1" onClick={() => setIsMenuOpen(false)}>Home</a></li>
+            <li><a href="#section2" onClick={() => setIsMenuOpen(false)}>About</a></li>
+            <li><a href="#section3" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
       <section className="main-container">
-      <h1 className="heading">
-      <span className="constant-text">Jesus </span>
-        <Typewriter />
-      </h1>
+        <h1 className="heading">
+          <span className="constant-text">Jesus </span>
+          <Typewriter />
+        </h1>
+
         <div className="bibelvers-container" ref={(el) => textRefs.current[0] = el}>
           <p className="bibelvers">
             „Denn ich weiß, was für Gedanken ich über euch habe, spricht der HERR: Gedanken des Friedens und nicht des Leides, dass ich euch gebe Zukunft und Hoffnung.“ – Jeremia 29:11
           </p>
         </div>
         <p className="fade-text">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod        </p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
 
         <div className="bibelvers-container" ref={(el) => textRefs.current[1] = el}>
           <p className="bibelvers">
@@ -59,7 +81,8 @@ function App() {
           </p>
         </div>
         <p className="fade-text">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod        </p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+        </p>
 
         <div className="bibelvers-container" ref={(el) => textRefs.current[2] = el}>
           <p className="bibelvers">
@@ -67,7 +90,8 @@ function App() {
           </p>
         </div>
         <p className="fade-text">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod        </p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+        </p>
 
         <div className="bibelvers-container" ref={(el) => textRefs.current[3] = el}>
           <p className="bibelvers">
@@ -75,7 +99,8 @@ function App() {
           </p>
         </div>
         <p className="fade-text">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod        </p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+        </p>
       </section>
     </div>
   );

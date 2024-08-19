@@ -1,5 +1,3 @@
-/* src/App.css */
-
 /* Globale Stile */
 * {
   box-sizing: border-box;
@@ -11,8 +9,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  background-color: #001F3F; /* Dunkles Blau für den gesamten Hintergrund */
-  color: #F0EAD6; /* Cremefarbene Schrift für die Standardtextfarbe */
+  background-color: #001F3F;
+  color: #F0EAD6;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
@@ -20,105 +18,236 @@ body {
 
 /* Hauptcontainer */
 .main-container {
-  padding: 80px 60px; /* Großzügiges Padding */
-  max-width: 1200px; /* Maximale Breite für größere Bildschirme */
-  margin: 0 auto; /* Zentrieren des Containers */
-
+  padding: 80px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
+}
+
+.constant-text {
+  margin-right: 10px; /* Füge Abstand nach rechts hinzu */
+}
+
+.constant-text, .typewriter-text {
+  display: inline-block;
+  vertical-align: middle; /* Vertikale Ausrichtung beider Elemente */
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 40px 20px; /* Weniger Padding für mobile Geräte */
+  }
 }
 
 /* Typewriter Effekt */
 .heading {
-  font-size: 7rem; /* Sehr große Schrift für den Titel */
-  margin-bottom: 60px; /* Größerer Abstand nach unten */
-  color: #F0EAD6; /* Cremefarbene Schrift für die Überschrift */
-  font-weight: 700; /* Fettere Schrift für größere Wirkung */
-  text-align: center; /* Zentrierte Überschrift */
-  letter-spacing: 1.5px; /* Etwas mehr Abstand zwischen Buchstaben */
-  line-height: 1.3; /* Erhöhte Zeilenhöhe für bessere Lesbarkeit */
-  white-space: nowrap; /* Verhindert Zeilenumbruch */
-  overflow: hidden; /* Verhindert Überlauf */
+  font-size: 7rem;
+  margin-bottom: 60px;
+  color: #F0EAD6;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1.5px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Stellt sicher, dass beide Elemente vertikal zentriert sind */
+  gap: 10px;
 }
 
-/* Typewriter Animation für wechselnden Text */
-.typewriter-text {
-  display: inline; /* Inline für den Typewriter-Effekt */
-  overflow: hidden; /* Verhindert Überlauf */
-  white-space: nowrap; /* Verhindert Zeilenumbruch */
-  border-right: .15em solid #F0EAD6; /* Blinkender Cursor-Effekt */
-  animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+.typewriter-text::after {
+  content: ''; /* Leerer Platzhalter */
+  display: inline-block; /* Sorgt dafür, dass es Platz beansprucht */
+  width: 1em; /* Füge Platz hinzu, selbst wenn nichts getippt wird */
 }
 
-/* Typing Animation */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+@media (max-width: 768px) {
+  .heading {
+    font-size: 4rem; /* Kleinere Schriftgröße für mobile Geräte */
+    margin-bottom: 40px;
+    flex-direction: column; /* Elemente übereinander stapeln */
+    gap: 0; 
+  }
+
+  .typewriter-text::after {
+    width: 0; /* Entferne den Platzhalter auf kleineren Bildschirmen, wenn sie in Spalten angeordnet sind */
+  }
 }
 
-/* Cursor Blink Animation */
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: #F0EAD6; }
+@media (max-width: 480px) {
+  .heading {
+    font-size: 3rem; /* Noch kleinere Schriftgröße für sehr kleine Geräte */
+  }
 }
 
 /* Bibelvers Container */
 .bibelvers-container {
-  background-color: #f0ead6; /* Weicher Salbei-Ton */
+  background-color: #f0ead6;
   color: black;
-  padding: 40px 30px; /* Mehr Padding für besseren Abstand */
-  margin: 60px 0; /* Mehr Abstand oben und unten */
-  border-radius: 10px; /* Abgerundete Ecken */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sanfter Schatten */
-  transition: background-color 0.3s ease; /* Sanfte Hintergrundfarbe-Übergänge */
+  padding: 40px 30px;
+  margin: 60px 0;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .bibelvers-container:hover {
-  background-color: #e0d7c0; /* Etwas dunklerer Salbei-Ton beim Hover */
+  background-color: #e0d7c0;
+}
+
+@media (max-width: 768px) {
+  .bibelvers-container {
+    padding: 30px 20px;
+    margin: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .bibelvers-container {
+    padding: 20px 15px;
+  }
 }
 
 /* Bibelverse */
 .bibelvers {
-  font-size: 1.8rem; /* Größere Schrift für Bibelverse */
-  font-weight: 700; /* Fett */
-  color: #001F3F; /* Dunkles Blau für gute Lesbarkeit */
-  text-align: center; /* Zentrierte Bibelverse */
-  margin: 0; /* Kein zusätzlicher Abstand */
-  line-height: 1.6; /* Erhöhte Zeilenhöhe */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #001F3F;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
 }
 
-/* Texte */
+@media (max-width: 768px) {
+  .bibelvers {
+    font-size: 1.6rem; /* Kleinere Schrift für mobile Geräte */
+  }
+}
+
+@media (max-width: 480px) {
+  .bibelvers {
+    font-size: 1.4rem; /* Noch kleinere Schriftgröße für mobile Geräte */
+  }
+}
+
+/* Fade-in Texte */
 .fade-text {
-  font-size: 1.4rem; /* Etwas größere Schriftgröße */
-  line-height: 1.8; /* Gute Lesbarkeit */
-  color: #F0EAD6; /* Cremefarbene Schrift für Textfarbe */
-  opacity: 0.7; /* Anfangs leicht sichtbar */
-  transform: translateY(20px); /* Leicht nach unten verschoben */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* Sanfte Übergänge */
-  margin-bottom: 70px; /* Größerer Abstand nach unten */
-  text-align: center; /* Zentrierter Text */
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #F0EAD6;
+  opacity: 0.7;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  margin-bottom: 70px;
+  text-align: center;
 }
 
-/* Sichtbare Texte, wenn gescrollt */
 .fade-text.visible {
-  opacity: 1; /* Vollständig sichtbar */
-  transform: translateY(0); /* Zurück zur normalen Position */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .fade-text {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fade-text {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
 }
 
 /* Responsives Design */
 @media (max-width: 768px) {
-  .heading {
-    font-size: 4rem; /* Kleinere Schrift für mobile Geräte */
-    margin-bottom: 40px; /* Angepasster Abstand nach unten für mobile Geräte */
-  }
-  .fade-text {
-    font-size: 1.2rem; /* Kleinere Schriftgröße für mobile Geräte */
-    margin-bottom: 40px; /* Angepasster Abstand nach unten für mobile Geräte */
-  }
   .main-container {
-    padding: 40px 20px; /* Weniger Padding für mobile Geräte */
+    padding: 40px 20px;
   }
   .bibelvers-container {
-    padding: 20px; /* Weniger Padding für mobile Geräte */
-    margin: 30px 0; /* Angepasster Abstand oben und unten für mobile Geräte */
+    padding: 20px;
+    margin: 30px 0;
   }
+  .heading {
+    font-size: 4rem;
+    margin-bottom: 40px;
+  }
+  .fade-text {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 20px 10px;
+  }
+  .bibelvers-container {
+    padding: 15px;
+  }
+  .heading {
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+  .bibelvers {
+    font-size: 1.4rem;
+  }
+  .fade-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+}
+/* Hamburger Icon */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+/* Menu Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-content ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.menu-content ul li {
+  margin: 20px 0;
+}
+
+.menu-content ul li a {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-content ul li a:hover {
+  color: #f0ead6;
 }

@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
       'rettet',
       'erlöst dich',
       'heilt dich',
-      'gibt dir Frieden',
-      'macht dich frei',
+      'gibt Frieden',
+      'macht frei',
       'liebt dich'
     ];
     
